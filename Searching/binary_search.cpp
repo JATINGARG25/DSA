@@ -1,30 +1,42 @@
-// #include<iostream>
-// using namespace std;
+#include<iostream>
+using namespace std;
 
-// bool search(int arr[], int size, int element){
-//     for(int i = 0; i<size; i++){
-//         if(arr[i] == element){
-//             return true;
-//         }
-//     }
-//     return false;
-// }
+int binary_search(int arr[], int size, int element){
 
-// int main(){
+    int start = 0;
+    int end = size-1;
+
+    // int mid = (start+end)/2;
+    int mid = start + (end - start)/2;
+
+    while (start <= end)
+    {
+        if(arr[mid] == element){
+            return mid;
+        }
+
+        if(element > arr[mid]){
+            start = mid + 1;
+        }
+        else{
+            end = mid - 1;
+        }
+        // mid = (start+end)/2;
+        int mid = start + (end - start)/2;
+    }
+    return -1;
+}
+
+int main(){
     
-//     int arr[10] = {5, 7, -2, 10, 22, 33, 67, 0, 23, 1};
+    int arr[10] = {1, 5, 7, 34, 57, 67, 68, 89, 98, 99};
 
-//     cout << "Enter the element you need to search for:" << endl;
-//     int element;
-//     cin >> element;
+    cout << "Enter the element you need to search for:" << endl;
+    int element;
+    cin >> element;
 
-//     bool found = search(arr, 10, element);
+    int found = binary_search(arr, 10, element);
 
-//     if(found){
-//         cout << "Element is present." << endl;
-//     }
-//     else{
-//         cout << "Element is not present." << endl;
-//     }
+    cout << "Index of " << element << " is " << found << endl;
 
-// }
+}
