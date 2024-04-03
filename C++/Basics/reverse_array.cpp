@@ -12,7 +12,7 @@ void reverse(int arr[], int size){
     int start = 0;
     int end = size-1;
 
-    while(start<=end){
+    while(start<end){
         swap(arr[start], arr[end]);
         start++;
         end--;
@@ -21,8 +21,8 @@ void reverse(int arr[], int size){
 
 int main(){
 
-    int arr[5] = {2,5,87,8,7};
+    int arr[6] = {2,5,87,10,8,7};
 
-    reverse(arr,5); // scope of array is global bcoz it gives its address to the function not the value; 
-    printArray(arr,5);
+    reverse(arr,6); // scope of array is global bcoz it gives its address to the function not the value; 
+    printArray(arr,6);
 }
